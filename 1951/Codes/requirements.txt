@@ -1,0 +1,13 @@
+# requirements.txt
+    
+numpy
+pandas
+opencv-python           
+Pillow                
+requests
+matplotlib
+scipy
+pypdf
+pdf2image             
+surya-ocr               # provides surya_detect, surya_ocr, etc.
+torch                   # backed used by surya‑detect models
