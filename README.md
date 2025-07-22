@@ -18,7 +18,7 @@ Additionally, I also deskew images, and post-process the JSON into a csv.
 
 ## Results
 
-Overall, I retrieve correct import quantity and value for just over 85% of products (8852/10393). The Output file contains the processed OCR output and the Results.JSON
+Overall, I retrieve correct import quantity and value for just over 85% of products (8852/10393). The Output file contains the processed OCR output csv 'semi-final' and the Results.JSON
 
 ## To Do
 
