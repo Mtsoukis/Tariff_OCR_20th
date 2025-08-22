@@ -15,7 +15,8 @@ library(readr)
 library(stringr)
 
 script_dir <- dirname(normalizePath(sys.frame(1)$ofile))
-file_path <- file.path(script_dir, "..", "Play", "Images", "Images_processed.csv")
+file_path <- file.path(script_dir, "..", "Images", "Images_processed.csv")
+#file_path <-"/Users/mariostsoukis/Downloads/parsed_results.csv"
 
 df <- read_csv(
   file      = file_path,
@@ -179,15 +180,20 @@ qty_unmatched <- sum(!summary_df_after$qty_match)
 val_unmatched <- sum(!summary_df_after$val_match)
 
 total_matches <- qty_matches + val_matches
+total_unmatched <- qty_unmatched + val_unmatched
+
+pct_total_match <- (total_matches / (total_matches + total_unmatched)) * 100
+
 
 cat("Matches (qty): ", qty_matches,  "\n")
 cat("Matches (val): ", val_matches,  "\n")
-cat("Unmatched (qty):", qty_unmatched, "\n")
-cat("Unmatched (val):", val_unmatched, "\n")
-cat("TOTAL matches (qty+val):", total_matches, "\n")
+cat("Unmatched (qty): ", qty_unmatched, "\n")
+cat("Unmatched (val): ", val_unmatched, "\n")
+cat("TOTAL matches (qty+val): ", total_matches, "\n")
+cat("Percentage matched (overall): ", round(pct_total_match, 2), "%\n")
 
 
 out_path <- file.path(script_dir, "..", "Output", "Images_processed_semi_final.csv")
 # Enter your own 
-write_csv(df, out_path)
+#write_csv(df, out_path)
 
